@@ -32,11 +32,26 @@
                     <Button Content="Найти" Margin="5" Click="Button_Click"/>
                 </StackPanel>
             </GroupBox>
-            <GroupBox Header="Фильтрация по фамилии">
+            <GroupBox Header="Фильтрация по фамилии" Margin="1">
                 <StackPanel>
                     <TextBox x:Name="tbFindFilter" Margin="5"/>
                     <Button Content="Фильтр" Click="Button_Click" Margin="5"/>
                 </StackPanel>
+            </GroupBox>
+            <GroupBox Header="SQL Запросы на выборку" Margin="1">
+                <StackPanel>
+                    <Button Content="SizeBatch Больше 50" Click="Button_Click" Margin="5"/>
+                    <Button Content="SizeBatch Меньше 50" Click="Button_Click" Margin="5"/>
+                </StackPanel>
+            </GroupBox>
+            <GroupBox Header="SQL Запросы на Обновление" Margin="1">
+                <StackPanel>
+                    <TextBox x:Name="tbSizeSellBatchRe" Margin="5"/>
+                    <Button Content="Обновление SizeSellBatch" Click="Button_Click" Margin="5"/>
+                </StackPanel>
+            </GroupBox>
+            <GroupBox Header="SQL Запросы на Удаление" Margin="1">
+                <Button Content="Удаление Из DateSellBatch" Click="Button_Click" Margin="5"/>
             </GroupBox>
         </StackPanel>
     </Grid>

@@ -19,7 +19,7 @@ public partial class OptSale
 
     public string NameCompany { get; set; } = null!;
 
-    public string SizeSellBatch { get; set; } = null!;
+    public string? SizeSellBatch { get; set; }
 
     public DateTime? DateSellBatch { get; set; }
 

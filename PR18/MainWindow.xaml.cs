@@ -1,14 +1,7 @@
-﻿using Microsoft.IdentityModel.Tokens;
-using System.Text;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace PR18
 {
@@ -48,6 +41,18 @@ namespace PR18
                     break;
                 case "Фильтр":
                     Filter();
+                    break;
+                case "SizeBatch Больше 50":
+                    SQL(1);
+                    break;
+                case "SizeBatch Меньше 50":
+                    SQL(2);
+                    break;
+                case "Обновление SizeSellBatch":
+                    SQL(3);
+                    break;
+                case "Удаление Из DateSellBatch":
+                    SQL(4);
                     break;
             }
         }
@@ -150,6 +155,32 @@ namespace PR18
                 }
             }
             else LoadDBInDataGrid();
+        }
+
+        private void SQL(int select)
+        {
+            using (OptSalesContext _db = new OptSalesContext())
+            {
+                switch(select)
+                {
+                    case 1:
+                    var fromSQLOne = _db.OptSales.FromSql($"SELECT * FROM OptSales WHERE SizeBatch > '50'");
+                        dataGrid.ItemsSource = fromSQLOne.ToList();
+                        break;
+                    case 2:
+                    var fromSQLTwo = _db.OptSales.FromSql($"SELECT * FROM OptSales WHERE SizeBatch < '50'");
+                        dataGrid.ItemsSource = fromSQLTwo.ToList();
+                        break;
+                    case 3:
+                    var fromSQLThree = _db.OptSales.FromSql($"UPDATE OptSales.dbo.OptSales SET SizeSellBatch = 10 WHERE SizeSellBatch = ''");
+                        dataGrid.ItemsSource =_db.OptSales.ToList();
+                        break;
+                    case 4:
+                    var fromSQLFour = _db.OptSales.FromSql($"DELETE FROM OptSales WHERE DateSellBatch = NULL");
+                        dataGrid.ItemsSource = fromSQLFour.ToList();
+                        break;
+                }
+            }
         }
     }
 }

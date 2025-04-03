@@ -58,6 +58,7 @@ namespace PR18
             if (tbNumberBatch.Text.Length == 0 || int.TryParse(tbNumberBatch.Text, out int numberBatch) == false) error.AppendLine("Введите номер партии");
             if (tbPriceProduct.Text.Length == 0 || decimal.TryParse(tbPriceProduct.Text, out decimal priceProduct) == false) error.AppendLine("Введите цену продукта");
             if (tbPriceBatch.Text.Length == 0 || decimal.TryParse(tbPriceBatch.Text, out decimal priceBatch) == false) error.AppendLine("Введите цену партии");
+            if (tbSIzeSellBatch.Text.Length == 0) tbSIzeSellBatch.Text = "";
 
 
             //Если есть ошибки то выводим MessageBox и не сохраняем

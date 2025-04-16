@@ -161,26 +161,36 @@ namespace PR18
         {
             using (OptSalesContext _db = new OptSalesContext())
             {
-                switch(select)
+                switch (select)
                 {
                     case 1:
-                    var fromSQLOne = _db.OptSales.FromSql($"SELECT * FROM OptSales WHERE SizeBatch > '50'");
+                        var fromSQLOne = _db.OptSales.FromSql($"SELECT * FROM OptSales WHERE SizeBatch > '50'");
                         dataGrid.ItemsSource = fromSQLOne.ToList();
                         break;
                     case 2:
-                    var fromSQLTwo = _db.OptSales.FromSql($"SELECT * FROM OptSales WHERE SizeBatch < '50'");
+                        var fromSQLTwo = _db.OptSales.FromSql($"SELECT * FROM OptSales WHERE SizeBatch < '50'");
                         dataGrid.ItemsSource = fromSQLTwo.ToList();
                         break;
                     case 3:
-                    var fromSQLThree = _db.OptSales.FromSql($"UPDATE OptSales.dbo.OptSales SET SizeSellBatch = 10 WHERE SizeSellBatch = ''");
-                        dataGrid.ItemsSource =_db.OptSales.ToList();
+                        var fromSQLThree = _db.OptSales.FromSql($"UPDATE OptSales.dbo.OptSales SET SizeSellBatch = 10 WHERE SizeSellBatch = ''");
+                        dataGrid.ItemsSource = _db.OptSales.ToList();
                         break;
                     case 4:
-                    var fromSQLFour = _db.OptSales.FromSql($"DELETE FROM OptSales WHERE DateSellBatch = NULL");
+                        var fromSQLFour = _db.OptSales.FromSql($"DELETE FROM OptSales WHERE DateSellBatch = NULL");
                         dataGrid.ItemsSource = fromSQLFour.ToList();
                         break;
                 }
             }
+        }
+
+        private void WindowDataGrid_Initialized(object sender, EventArgs e)
+        {
+            Autorization authorization = new Autorization();
+            authorization.ShowDialog();
+            if (Data.Login == false) Close();
+            if (Data.Right == "Администратор") ;
+            else miDelite.IsChecked = false;
+            this.Title = this.Title + " " + Data.UserSurname + " " + Data.UserName + " (" + Data.Right + ")";
         }
     }
 }

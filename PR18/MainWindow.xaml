@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PR18"
         mc:Ignorable="d"
-        Title="WindowDataGrid" Height="450" Width="800" Loaded="Window_Loaded" x:Name="WindowDataGrid">
+        Title="WindowDataGrid" Height="450" Width="800" Loaded="Window_Loaded" x:Name="WindowDataGrid" Initialized="WindowDataGrid_Initialized">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
@@ -16,7 +16,7 @@
             <MenuItem Header="Функции">
                 <MenuItem Header="Добавить" Click="MenuItem_Click"/>
                 <MenuItem Header="Редактировать" Click="MenuItem_Click"/>
-                <MenuItem Header="Удалить" Click="MenuItem_Click"/>
+                <MenuItem Header="Удалить" Click="MenuItem_Click" Name="miDelite"/>
             </MenuItem>
         </Menu>
         <GroupBox Margin="5" Header="Это база" Grid.Row="1">

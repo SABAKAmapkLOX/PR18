@@ -19,6 +19,11 @@ namespace PR18
     public class Data
     {
         public static OptSale? optSales;
+        public static bool Login = false;
+        public static string UserSurname;
+        public static string UserName;
+        public static string UserPartonymic;
+        public static string Right;
     }
 
     public partial class AddItemDataGrid : Window

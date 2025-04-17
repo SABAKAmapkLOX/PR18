@@ -16,7 +16,7 @@
             <MenuItem Header="Функции">
                 <MenuItem Header="Добавить" Click="MenuItem_Click"/>
                 <MenuItem Header="Редактировать" Click="MenuItem_Click"/>
-                <MenuItem Header="Удалить" Click="MenuItem_Click" Name="miDelite"/>
+                <MenuItem Header="Удалить" Click="MenuItem_Click" Name="miDelite" IsEnabled="True"/>
             </MenuItem>
         </Menu>
         <GroupBox Margin="5" Header="Это база" Grid.Row="1">

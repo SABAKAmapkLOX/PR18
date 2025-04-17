@@ -188,8 +188,8 @@ namespace PR18
             Autorization authorization = new Autorization();
             authorization.ShowDialog();
             if (Data.Login == false) Close();
-            if (Data.Right == "Администратор") ;
-            else miDelite.IsChecked = false;
+            if (Data.Right == "Admin") ;
+            else miDelite.IsEnabled = false;
             this.Title = this.Title + " " + Data.UserSurname + " " + Data.UserName + " (" + Data.Right + ")";
         }
     }
